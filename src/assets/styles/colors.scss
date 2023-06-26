@@ -2,17 +2,23 @@
 
 :root {
   --primary: #1941BF;
+  --primary-darker: #173983;
+  --primary-middle: #0042C7;
   --secondary: #FFC629;
   --text: #464250;
   --white: #ffffff;
   --dark: #000000;
-  --grey: #F7F7F7;
+  --grey: #D2D2D2;
   --blue: #2166B8;
   --yellow: #F9B14C;
-  --green: #239C85;
+  --green: #039855;
   --pink: #FF69B4;
   --violet: #9E3FF6;
   --red: #E10000
+}
+
+.c-green {
+  color: var(--green);
 }
 
 

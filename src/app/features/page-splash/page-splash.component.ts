@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from "@angular/router";
+import { ROUTE_PATHS } from "../../core/constants";
 
 @Component({
   selector: 'page-splash',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-splash.component.scss']
 })
 export class PageSplashComponent {
-
+  ROUTE_PATHS = ROUTE_PATHS
+  constructor(public router: Router) {}
 }

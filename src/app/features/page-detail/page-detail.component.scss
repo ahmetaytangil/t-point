@@ -1,0 +1,190 @@
+
+.detail-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 45px;
+  border-radius: 0 30px 30px 30px;
+  box-shadow: 0 0 6px 0 rgba(27, 26, 28, 0.10);
+  margin-bottom: 65px;
+  position: relative;
+}
+
+.detail-image {
+  height: 440px;
+  object-fit: cover;
+  border-radius: 0 30px 30px 30px;
+  width: 100%;
+}
+
+.detail-col {
+  width: 48%;
+}
+
+.detail-snackbar {
+  width: 100%;
+  border-radius: 0 30px;
+  background: rgba(158, 158, 158, 0.15);
+  box-shadow: 0 0 6px 0 rgba(27, 26, 28, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 136px;
+  color: #464250;
+  text-align: center;
+  font-size: 36px;
+  line-height: 50px;
+  position: relative;
+  right: -45px;
+  top: -30px;
+}
+
+.detail-information {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+  right: -30px;
+}
+
+.detail-info-cell {
+  width: 50%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:first-child {
+    border-right: 3.3px solid #00000033;
+  }
+}
+
+.detail-info-cell-head {
+  color: #07377E;
+  font-size: 74px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+}
+.detail-info-cell-name {
+  font-size: 32px;
+  font-weight: 500;
+  color: #464250;
+  margin: 0;
+  line-height: 1;
+}
+.detail-info-cell-sub {
+  color: #9E9E9E;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.2;
+}
+.detail-info-cell-price {
+  color: #464250;
+  font-size: 74px;
+  font-weight: 700;
+
+  .currency {
+    font-size: 40px;
+    font-weight: 500;
+  }
+}
+
+.not-landscape-button {
+  margin-bottom: 45px;
+}
+
+.detail-paragraph {
+  color: #464250;
+  font-size: 30px;
+  line-height: 34px;
+}
+
+.detail-list {
+  color: #464250;
+  text-align: justify;
+  font-size: 30px;
+  line-height: 35.5px;
+  margin-top: 55px;
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.landscape-col {
+  display: none;
+}
+
+.detail-paragraph-container {
+  padding-bottom: 100px;
+}
+
+@media (orientation: landscape) {
+  .not-landscape-button {
+    display: none;
+  }
+
+  .landscape-col {
+    display: block;
+  }
+
+  .detail-col {
+    width: 33%;
+  }
+
+  .detail-image {
+    height: 200px;
+  }
+
+  .detail-snackbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 33%;
+    height: 70px;
+    font-size: 32px;
+  }
+
+  .detail-information {
+    margin-top: 0;
+    right: 0;
+  }
+
+  .detail-container {
+    align-items: center;
+  }
+
+  .detail-info-cell {
+    height: 120px;
+  }
+
+  .detail-info-cell-head {
+    font-size: 54px;
+  }
+  .detail-info-cell-name {
+    font-size: 22px;
+  }
+  .detail-info-cell-sub {
+    font-size: 16px;
+  }
+  .detail-info-cell-price {
+    font-size: 54px;
+
+    .currency {
+      font-size: 34px;
+    }
+  }
+
+  .landscape-col-btn {
+    max-width: 280px;
+    margin: 40px auto 0 auto;
+  }
+
+  .detail-paragraph {
+    font-size: 25px;
+  }
+
+  .detail-list {
+    font-size: 20px;
+  }
+}
+

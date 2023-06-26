@@ -6,3 +6,13 @@
   align-items: center;
   justify-content: center;
 }
+
+.splash-logo {
+  max-width: 1000px;
+}
+
+@media (orientation: landscape) {
+  .splash-logo {
+    max-width: 500px;
+  }
+}

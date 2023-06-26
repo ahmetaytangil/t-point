@@ -1,5 +1,14 @@
-<div class="page-splash">
-  <div>
-    <img [src]="'logo-white.png' | getSrc:'logo'" alt="">
+<div class="page-splash container-fluid">
+  <div class="text-center">
+    <img
+      class="w-100 splash-logo"
+      [src]="'logo-white.png' | getSrc:'logo'"
+      alt=""
+    >
+    <atom-button
+      text="Devam Et"
+      variant="secondary mx-auto"
+      (onClick)="router.navigate([ROUTE_PATHS.extra_packages])"
+    ></atom-button>
   </div>
 </div>

@@ -262,6 +262,10 @@ $m5: 5rem;
   margin-bottom: 10px;
 }
 
+.ms-10px {
+  margin-left: 10px!important;
+}
+
 .mt-80px {
   margin-top: 80px;
 }
@@ -284,6 +288,26 @@ $m5: 5rem;
 
 .pe-0 {
   padding-right: 0!important;
+}
+
+.p-1 {
+  padding: $m1 !important;
+}
+
+.p-2 {
+  padding: $m2 !important;
+}
+
+.p-3 {
+  padding: $m3 !important;
+}
+
+.p-4 {
+  padding: $m4 !important;
+}
+
+.p-5 {
+  padding: $m5 !important;
 }
 
 @media (max-width: 575.98px) {

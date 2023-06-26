@@ -1,0 +1,133 @@
+.atom-line-card {
+  border-radius: 0 30px 30px 30px;
+  background: var(--white);
+  box-shadow: 0 0 6px 0 rgba(27, 26, 28, 0.30);
+  padding: 26px 50px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 55px;
+  border: 3px solid transparent;
+
+  &.disabled {
+    opacity: .5;
+  }
+
+  &:hover:not(&.disabled) {
+    border: 3px solid var(--primary-middle);
+    background: var(--information-200, #EFF8FF);
+    box-shadow: 0 0 6px 0 rgba(27, 26, 28, 0.10);
+
+    .atom-line-card-sub-text {
+      color: var(--primary-middle);
+    }
+  }
+}
+
+.atom-line-card-image-side {
+  padding-right: 32px;
+  height: 120px;
+  width: 420px;
+  border-right: 3.3px solid #00000033;
+
+  &.resize-image-side {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.atom-line-card-image {
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  object-fit: scale-down;
+}
+
+.atom-line-card-content {
+  padding-left: 40px;
+}
+
+.atom-line-card-price {
+  color: #464250;
+  font-size: 55px;
+  font-weight: 700;
+  line-height: 55px;
+}
+
+.atom-line-card-price-sub {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--grey);
+
+  > span {
+    color: #464250;
+  }
+}
+
+.atom-line-card-sub-text {
+  color: #464250;;
+  font-size: 44px;
+  font-weight: 700;
+}
+
+.atom-line-card-sub-name {
+  color: #B3B3B3;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.atom-line-card-sub-outer {
+  padding-top: 16px;
+}
+
+@media (orientation: landscape) {
+  .atom-line-card-image-side {
+    height: 45px;
+    width: 190px;
+    padding-right: 24px;
+
+    &.resize-image-side {
+      height: 60px;
+      width: 220px;
+      padding-right: 14px;
+    }
+  }
+
+  .atom-line-card {
+    padding: 14px 16px;
+    margin-bottom: 20px;
+  }
+
+  .atom-line-card-content {
+    > .headline-3 {
+      font-size: 24px!important;
+      font-weight: 700!important;
+      line-height: 16px!important;
+    }
+  }
+
+  .atom-line-card-price {
+    font-size: 34px;
+    line-height: 1;
+  }
+
+  .atom-line-card-price-sub {
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .atom-line-card-sub-text {
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  .atom-line-card-sub-name {
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .atom-line-card-sub-outer {
+    padding-top: 0;
+  }
+}
