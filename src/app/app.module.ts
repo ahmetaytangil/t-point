@@ -12,7 +12,11 @@ import { PageExtraPackagesComponent } from './features/page-extra-packages/page-
 import { LayoutAppComponent } from "./features/layout-app/layout-app.component";
 import { PagePackagesComponent } from './features/page-packages/page-packages.component';
 import { PageDetailComponent } from './features/page-detail/page-detail.component';
-
+import { PagePhoneNumberComponent } from './features/page-phone-number/page-phone-number.component';
+import { IConfig, NgxMaskModule } from "ngx-mask";
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +24,8 @@ import { PageDetailComponent } from './features/page-detail/page-detail.componen
     PageExtraPackagesComponent,
     LayoutAppComponent,
     PagePackagesComponent,
-    PageDetailComponent
+    PageDetailComponent,
+    PagePhoneNumberComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +34,9 @@ import { PageDetailComponent } from './features/page-detail/page-detail.componen
     HttpClientModule,
     BrowserAnimationsModule,
     SharedModule,
-    SwiperModule
+    SwiperModule,
+    NgxMaskModule.forRoot(maskConfig),
+
   ],
   providers: [],
   bootstrap: [ AppComponent ]

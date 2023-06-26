@@ -5,17 +5,20 @@ import { MaterialModule } from "../material/material.module";
 import { SwiperModule } from "swiper/angular";
 import { AtomButtonComponent } from './atom-button/atom-button.component';
 import { AtomLineCardComponent } from './atom-line-card/atom-line-card.component';
+import { AtomNumpadComponent } from './atom-numpad/atom-numpad.component';
 
 
 @NgModule({
   declarations: [
 
     AtomButtonComponent,
-     AtomLineCardComponent
+     AtomLineCardComponent,
+     AtomNumpadComponent
   ],
   exports: [
     AtomButtonComponent,
-    AtomLineCardComponent
+    AtomLineCardComponent,
+    AtomNumpadComponent
   ],
   imports: [
     CommonModule,
