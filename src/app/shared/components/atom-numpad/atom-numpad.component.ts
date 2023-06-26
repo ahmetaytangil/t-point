@@ -21,7 +21,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
       </div>
       <div class="col-xs-4 mb-4">
         <div class="numpad-item" (click)="onClickDelete.emit()">
-          <img [src]="'icon-arrow-narrow-left.svg' | getSrc" alt="" width="140">
+          <img class="delete-image" [src]="'icon-arrow-narrow-left.svg' | getSrc" alt="" width="140">
         </div>
       </div>
     </div>

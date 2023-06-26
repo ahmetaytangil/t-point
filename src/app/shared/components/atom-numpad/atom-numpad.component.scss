@@ -13,3 +13,20 @@
   justify-content: center;
   cursor: pointer;
 }
+
+@media (orientation: landscape) {
+  .numpad-item {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    aspect-ratio: 2.6/1;
+  }
+
+  .delete-image {
+    width: 55px;
+  }
+
+  .mb-4 {
+    margin-bottom: 16px!important;
+  }
+}

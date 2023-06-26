@@ -5,16 +5,19 @@ import { Component } from '@angular/core';
   template: `
     <temp-banner></temp-banner>
     <div class="container py-50px">
-      <div class="pb-100px">
-        <h2 class="phone-text-input">Telefon Numarası</h2>
-        <div class="phone-number-shower">{{ phoneNumber | mask:'0 (000) 000 0000' }}</div>
-
-        <atom-button variant="primary maxw-100 mb-4" text="Devam Et"></atom-button>
-        <atom-numpad
+      <div class="pb-100px phone-container">
+        <div class="phone-col">
+          <h2 class="phone-text-input">Telefon Numarası</h2>
+          <div class="phone-number-shower">{{ phoneNumber | mask:'0 (000) 000 0000' }}</div>
+          <atom-button variant="primary maxw-100 mb-4" text="Devam Et"></atom-button>
+        </div>
+        <div class="phone-col">
+          <atom-numpad
             (onClickNumber)="addToPhoneNumber($event)"
             (onClickAllDelete)="deletePhoneNumber()"
             (onClickDelete)="deletePhoneLastNumber()"
-        ></atom-numpad>
+          ></atom-numpad>
+        </div>
       </div>
     </div>
   `,
