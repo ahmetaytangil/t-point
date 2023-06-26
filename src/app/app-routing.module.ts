@@ -7,6 +7,7 @@ import { PageExtraPackagesComponent } from "./features/page-extra-packages/page-
 import { PagePackagesComponent } from "./features/page-packages/page-packages.component";
 import { PageDetailComponent } from "./features/page-detail/page-detail.component";
 import { PagePhoneNumberComponent } from "./features/page-phone-number/page-phone-number.component";
+import { PageBuyComponent } from "./features/page-buy/page-buy.component";
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
       {
         path: ROUTE_PATHS.phone_number,
         component: PagePhoneNumberComponent
+      },
+      {
+        path: ROUTE_PATHS.buy,
+        component: PageBuyComponent
       }
     ]
   }
