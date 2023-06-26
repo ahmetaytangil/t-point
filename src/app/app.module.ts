@@ -15,6 +15,8 @@ import { PageDetailComponent } from './features/page-detail/page-detail.componen
 import { PagePhoneNumberComponent } from './features/page-phone-number/page-phone-number.component';
 import { IConfig, NgxMaskModule } from "ngx-mask";
 import { PageBuyComponent } from './features/page-buy/page-buy.component';
+import { PageLoginWithQrComponent } from './features/page-login-with-qr/page-login-with-qr.component';
+import { PageAfterPaymentComponent } from './features/page-after-payment/page-after-payment.component';
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
@@ -27,7 +29,9 @@ const maskConfig: Partial<IConfig> = {
     PagePackagesComponent,
     PageDetailComponent,
     PagePhoneNumberComponent,
-    PageBuyComponent
+    PageBuyComponent,
+    PageLoginWithQrComponent,
+    PageAfterPaymentComponent
   ],
   imports: [
     CommonModule,

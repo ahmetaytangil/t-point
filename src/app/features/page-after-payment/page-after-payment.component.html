@@ -1,0 +1,14 @@
+<temp-header
+  [list]="['Ek Paketler', '3 GB İnternet Paketi', '3 GB İnternet Paketi', 'Paye ve Kr...']"
+  (click)="router.navigate([ROUTE_PATHS.extra_packages, ROUTE_PATHS.buy])"
+></temp-header>
+<div class="after-payment-container">
+  <div class="after-payment-content">
+    <img class="after-payment-image" [src]="'hero-success.svg' | getSrc:'common'" alt="">
+    <p class="text-m">Tamamlandı!</p>
+    <p class="text-c">İşleminiz Başarıyla Tamamlanmıştır. <br> İlginiz için Teşekkür Ederiz.</p>
+    <div class="btn-outer">
+      <atom-button text="Tamam" variant="thirty"></atom-button>
+    </div>
+  </div>
+</div>

@@ -16,6 +16,11 @@
   border: 2px solid transparent;
   cursor: pointer;
 
+  &.w-100 {
+    width: 100%;
+    max-width: 100% !important;
+  }
+
   &.primary {
     background-color: var(--primary);
     border-color: var(--primary);
@@ -26,6 +31,12 @@
     background-color: var(--secondary);
     border-color: var(--secondary);
     color: var(--text);
+  }
+
+  &.thirty {
+    border: 5px solid #0042C7;
+    color: #0042C7;
+    background-color: transparent;
   }
 
   &.initial {
@@ -52,6 +63,11 @@
       font-weight: 600!important;
       line-height: 24px!important;
       border-radius: 20px;
+    }
+
+    &.thirty {
+      border-radius: 30px;
+      border: 3px solid #0042C7;
     }
   }
 }

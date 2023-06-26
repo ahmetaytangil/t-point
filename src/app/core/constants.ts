@@ -4,5 +4,7 @@ export const ROUTE_PATHS = {
   packages: 'packages',
   package_detail: 'package-detail',
   phone_number: 'phone_number',
-  buy: 'buy'
+  buy: 'buy',
+  login_with_qr: 'login-with-qr',
+  after_payment: 'after-payment'
 }

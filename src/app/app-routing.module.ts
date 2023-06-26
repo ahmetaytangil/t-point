@@ -8,6 +8,8 @@ import { PagePackagesComponent } from "./features/page-packages/page-packages.co
 import { PageDetailComponent } from "./features/page-detail/page-detail.component";
 import { PagePhoneNumberComponent } from "./features/page-phone-number/page-phone-number.component";
 import { PageBuyComponent } from "./features/page-buy/page-buy.component";
+import { PageLoginWithQrComponent } from "./features/page-login-with-qr/page-login-with-qr.component";
+import { PageAfterPaymentComponent } from "./features/page-after-payment/page-after-payment.component";
 
 const routes: Routes = [
   {
@@ -37,9 +39,18 @@ const routes: Routes = [
       {
         path: ROUTE_PATHS.buy,
         component: PageBuyComponent
+      },
+      {
+        path: ROUTE_PATHS.login_with_qr,
+        component: PageLoginWithQrComponent
+      },
+      {
+        path: ROUTE_PATHS.after_payment,
+        component: PageAfterPaymentComponent
       }
     ]
-  }
+  },
+  { path: '**', redirectTo: ROUTE_PATHS.home}
 ];
 
 @NgModule({
