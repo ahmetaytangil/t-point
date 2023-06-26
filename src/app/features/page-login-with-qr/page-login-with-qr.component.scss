@@ -36,6 +36,7 @@
   font-size: 35px;
   font-weight: 500;
   margin-bottom: 45px;
+  line-height: 1.1;
 }
 
 .number-boxes-row {
@@ -75,6 +76,18 @@
   &.disable-btn {
     cursor: not-allowed;
   }
+}
+
+@media (orientation: portrait) and (max-width: 1100px) {
+  .container-in {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .text-m {
+    font-size: 29px;
+  }
+
 }
 
 @media (orientation: landscape) {

@@ -9,8 +9,8 @@ import { ROUTE_PATHS } from "../../core/constants";
         [list]="['Ek Paketler', '3 GB İnternet Paketi', 'Satın Al', 'Paycell QR ile Öde']"
         (onClickBack)="router.navigate([ROUTE_PATHS.extra_packages, ROUTE_PATHS.buy])"
     ></temp-header>
-    <div class="container py-50px">
-      <div class="pb-100px container-in">
+    <div class="container general-main">
+      <div class="container-in">
         <div class="container-cell">
           <div class="qr-code-container">
             <div class="qr-code-cell">

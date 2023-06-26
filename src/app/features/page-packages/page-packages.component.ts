@@ -9,7 +9,7 @@ import { ROUTE_PATHS } from "../../core/constants";
         [list]="['Ek Paketler']"
         (onClickBack)="router.navigate([ROUTE_PATHS.extra_packages])"
     ></temp-header>
-   <div class="container py-50px">
+   <div class="container general-main">
      <atom-line-card
        [disable]="true"
        head="Instagram Paketi 6 GB"

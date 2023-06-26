@@ -14,6 +14,12 @@
   cursor: pointer;
 }
 
+@media (orientation: portrait) and (max-width: 1280px) {
+  .numpad-item {
+    aspect-ratio: 2/1;
+  }
+}
+
 @media (orientation: landscape) {
   .numpad-item {
     text-align: center;

@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
       [list]="['Ek Paketler', '3 GB İnternet Paketi']"
       (onClickBack)="router.navigate([ROUTE_PATHS.extra_packages, ROUTE_PATHS.packages, 123])"
     ></temp-header>
-    <div class="container py-50px">
+    <div class="container general-main">
       <div class="detail-container">
         <div class="detail-col">
           <img class="w-100 detail-image" [src]="'3gb.png' | getSrc:'common'" alt="">

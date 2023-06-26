@@ -9,7 +9,7 @@ import { ROUTE_PATHS } from "../../core/constants";
         [list]="['Ek Paketler', '3 GB İnternet Paketi', 'Satın Al']"
         (onClickBack)="router.navigate([ROUTE_PATHS.extra_packages, ROUTE_PATHS.phone_number])"
     ></temp-header>
-    <div class="container py-50px">
+    <div class="container general-main">
       <div class="pb-100px">
         <div class="page-buy-container">
           <h2 class="page-buy-head">Lütfen Ödeme Yönteminizi Belirtin</h2>

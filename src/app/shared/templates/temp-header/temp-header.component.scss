@@ -7,6 +7,11 @@
   -moz-box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.16);
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.16);
   padding: 10px 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
 }
 
 .temp-header-route {
@@ -56,6 +61,37 @@
   height: 50px;
   cursor: pointer;
 }
+
+@media (orientation: portrait) and (max-width: 1280px) {
+  .temp-header-breadcrumbs-icon {
+    margin-right: 12px;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .temp-header-route {
+    .temp-header-breadcrumbs {
+      .temp-header-breadcrumbs-text {
+        font-size: 22px;
+        margin-right: 12px;
+      }
+
+      &:last-child {
+
+        .temp-header-breadcrumbs-text {
+          margin-right: 0;
+        }
+
+        .temp-header-breadcrumbs-icon {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
 
 @media (orientation: landscape) {
   .temp-header {

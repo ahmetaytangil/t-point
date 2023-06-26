@@ -38,6 +38,13 @@
   min-width: 480px;
 }
 
+@media (orientation: portrait) and (max-width: 1100px) {
+  .after-payment-image {
+    width: 330px;
+    height: 330px;
+  }
+}
+
 @media (orientation: landscape) {
   .after-payment-container {
     height: calc(100vh - 70px);

@@ -233,3 +233,13 @@ html {
 .overflow-x-auto {
   overflow-x: auto;
 }
+
+.general-main {
+  padding: 200px 0;
+}
+
+@media (orientation: landscape) {
+  .general-main {
+    padding: 100px 0;
+  }
+}

@@ -28,6 +28,27 @@
   padding-right: 16px;
 }
 
+@media (orientation: portrait) and (max-width: 1280px) {
+  .temp-banner-image {
+    height: 540px;
+  }
+}
+
+@media (orientation: portrait) and (max-width: 1100px) {
+  .temp-banner-image {
+    height: 440px;
+  }
+
+  .temp-content {
+    height: 150px;
+  }
+
+  .temp-content-logo {
+    width: 245px;
+    height: 120px;
+  }
+}
+
 @media (orientation: landscape) {
   .temp-banner-image {
     height: 180px;

@@ -16,10 +16,6 @@
     border: 3px solid var(--primary-middle);
     background: var(--information-200, #EFF8FF);
     box-shadow: 0 0 6px 0 rgba(27, 26, 28, 0.10);
-
-    .atom-line-card-sub-text {
-      color: var(--primary-middle);
-    }
   }
 }
 
@@ -65,9 +61,9 @@
 }
 
 .atom-line-card-sub-text {
-  color: #464250;;
   font-size: 44px;
   font-weight: 700;
+  color: var(--primary-middle);
 }
 
 .atom-line-card-sub-name {
@@ -79,6 +75,37 @@
 
 .atom-line-card-sub-outer {
   padding-top: 16px;
+}
+
+@media (orientation: portrait) and (max-width: 1100px) {
+  .atom-line-card {
+    padding: 18px 32px;
+  }
+
+  .atom-line-card-image-side {
+    width: 300px;
+    height: 86px;
+  }
+
+  .headline-3 {
+    font-size: 32px!important;
+  }
+
+  .atom-line-card-price {
+    font-size: 44px;
+  }
+
+  .atom-line-card-price-sub {
+    font-size: 16px;
+  }
+
+  .atom-line-card-sub-text {
+    font-size: 36px;
+  }
+
+  .atom-line-card-sub-name {
+    font-size: 14px;
+  }
 }
 
 @media (orientation: landscape) {

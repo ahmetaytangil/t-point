@@ -73,6 +73,19 @@
   }
 }
 
+@media (max-height: 2100px) {
+  .payment-btn {
+    aspect-ratio: 1.2/1;
+    width: 750px;
+  }
+
+  .paycell-image, .paye-image {
+    width: 355px;
+    height: 355px;
+  }
+}
+
+
 @media (orientation: landscape) {
   .page-buy-btns {
     display: flex;
