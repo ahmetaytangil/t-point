@@ -1,0 +1,104 @@
+/* ------------------------------------------------------------------------------------------------------- Font Sizes */
+@function calculateRem($size) {
+  $remSize: calc($size / 16);
+  @return #{$remSize}rem;
+}
+
+@mixin fontSize($size) {
+  font-size: calculateRem($size)!important;
+}
+
+.display-6 {
+  @include fontSize(40);
+  margin: 0;
+  line-height: 1.1!important;
+}
+
+.display-5 {
+  @include fontSize(48);
+  margin: 0!important;
+  line-height: 1.1!important;
+}
+
+.display-4 {
+  @include fontSize(56);
+  margin: 0!important;
+  line-height: 1.1!important;
+}
+
+.headline-6 {
+  @include fontSize(12);
+  margin: 0!important;
+  line-height: 1.2!important;
+}
+
+.headline-5 {
+  @include fontSize(14);
+  margin: 0!important;
+  line-height: 1.1!important;
+}
+
+.headline-4-5 {
+  @include fontSize(20);
+  margin: 0!important;
+  line-height: 1.6!important;
+}
+
+.headline-4 {
+  @include fontSize(30);
+  margin: 0!important;
+  line-height: 1.6!important;
+}
+
+.headline-3 {
+  @include fontSize(40);
+  margin: 0!important;
+  line-height: 1.1!important;
+}
+
+.headline-2 {
+  @include fontSize(50);
+  margin: 0!important;
+  line-height: 1.1!important;
+}
+
+.headline-1 {
+  @include fontSize(58);
+  margin: 0!important;
+  line-height: 1.1!important;
+}
+
+.body-1 {
+  @include fontSize(16);
+  margin: 0!important;
+}
+
+.fw-bold {
+  font-weight: 700 !important;
+}
+
+.fw-semibold {
+  font-weight: 600 !important;
+}
+
+.fw-medium {
+  font-weight: 500 !important;
+}
+
+.fw-regular {
+  font-weight: 400 !important;
+}
+
+.body-default {
+  font-size: 16px!important;
+}
+
+.body-small {
+  font-size: 12px!important;
+  line-height: 1.6!important;
+  margin-bottom: 0!important;
+}
+
+.body-xsmall {
+  font-size: 10px;
+}
