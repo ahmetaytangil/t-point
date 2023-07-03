@@ -18,7 +18,7 @@ RUN npm run build --configuration $ANGULAR_STAGE
 # NGINX
 FROM nginx:alpine
 
-COPY --from=build /app/dist/paketle-web-dealer /usr/share/nginx/html
+COPY --from=build /app/dist/t_point /usr/share/nginx/html
 
 RUN rm /etc/nginx/conf.d/default.conf
 
