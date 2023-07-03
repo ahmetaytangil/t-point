@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,7 @@ import { IConfig, NgxMaskModule } from "ngx-mask";
 import { PageBuyComponent } from './features/page-buy/page-buy.component';
 import { PageLoginWithQrComponent } from './features/page-login-with-qr/page-login-with-qr.component';
 import { PageAfterPaymentComponent } from './features/page-after-payment/page-after-payment.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
@@ -42,6 +43,12 @@ const maskConfig: Partial<IConfig> = {
     SharedModule,
     SwiperModule,
     NgxMaskModule.forRoot(maskConfig),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
 
   ],
   providers: [],

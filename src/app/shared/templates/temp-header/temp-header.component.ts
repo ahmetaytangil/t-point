@@ -31,7 +31,7 @@ import { ROUTE_PATHS } from "../../../core/constants";
             class="temp-header-home-icon"
             [src]="'icon-home-colored.svg' | getSrc"
             alt=""
-            (click)="router.navigate([ROUTE_PATHS.extra_packages])"
+            (click)="router.navigate([ROUTE_PATHS.home])"
           >
         </div>
       </div>

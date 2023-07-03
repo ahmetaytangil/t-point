@@ -9,7 +9,7 @@ RUN npm install @angular/cli@latest -g
 COPY . .
 
 
-RUN npm i
+RUN npm i --legacy-peer-deps
 RUN npm run build
 
 
