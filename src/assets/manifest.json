@@ -8,7 +8,7 @@
   "theme_color" : "#FFFFFF",
   "prefer_related_applications": false,
   "background_color": "#ffffff",
-  "start_url": "/?standalone=true",
+  "start_url": "/",
   "icons": [
     {
       "src": "/assets/images/icons/logo-white.png",
