@@ -1,0 +1,20 @@
+{
+  "name": "TPoint",
+  "short_name": "TPoint",
+  "description": "TPoint",
+  "lang": "tr-TR",
+  "dir": "ltr",
+  "display" : "fullscreen",
+  "theme_color" : "#FFFFFF",
+  "prefer_related_applications": false,
+  "background_color": "#ffffff",
+  "start_url": "/?standalone=true",
+  "icons": [
+    {
+      "src": "/assets/images/icons/logo-white.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
