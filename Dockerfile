@@ -8,11 +8,9 @@ RUN npm install @angular/cli@latest -g
 
 COPY . .
 
-ENV ANGULAR_STAGE $ANGULAR_STAGE
-RUN echo $ANGULAR_STAGE
 
 RUN npm i
-RUN npm run build --configuration $ANGULAR_STAGE
+RUN npm run build
 
 
 # NGINX
