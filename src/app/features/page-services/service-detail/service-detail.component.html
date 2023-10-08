@@ -1,0 +1,38 @@
+<app-temp-turkcell-bill-payment
+  *ngIf="
+    pageService.detailName === 'turkcell-bill-payment' &&
+    !pageService.invoicesData
+  "
+></app-temp-turkcell-bill-payment>
+
+<app-temp-invoices
+  *ngIf="
+    (pageService.detailName === 'turkcell-bill-payment' ||
+      pageService.detailName === 'superonline-bill-payment') &&
+    pageService.invoicesData &&
+    !pageService.currentInvoiceStatus
+  "
+></app-temp-invoices>
+
+<app-temp-status-socket
+  *ngIf="
+    (pageService.detailName === 'turkcell-bill-payment' ||
+      pageService.detailName === 'superonline-bill-payment') &&
+    pageService.currentInvoiceStatus
+  "
+></app-temp-status-socket>
+
+<app-temp-superonline-bill-payment
+  *ngIf="
+    pageService.detailName === 'superonline-bill-payment' &&
+    !pageService.invoicesData
+  "
+></app-temp-superonline-bill-payment>
+
+<app-temp-balance-installation
+  *ngIf="pageService.detailName === 'balance-installation'"
+></app-temp-balance-installation>
+
+<app-temp-package-installation
+  *ngIf="pageService.detailName === 'package-installation'"
+></app-temp-package-installation>

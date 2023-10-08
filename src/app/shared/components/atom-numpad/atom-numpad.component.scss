@@ -1,5 +1,9 @@
+:host {
+  display: contents;
+}
+
 .numpad-item {
-  aspect-ratio: 1.8/1;
+  aspect-ratio: 2/1;
   min-height: 50px;
   flex-shrink: 0;
   border-radius: 10px;
@@ -13,22 +17,33 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  &.secondary {
+    border: none;
+    border-radius: 0;
+    font-size: 46px;
+    color: #303B58;
+    font-weight: 700;
+
+    &.delete, &.delete-all {
+      background-color: #303B58;
+      color: #FFF;
+      font-weight: 400;
+
+      .delete-image {
+        width: 50px;
+      }
+    }
+  }
+
+
+
 }
 
 @media (orientation: portrait) and (max-width: 1280px) {
-  .numpad-item {
-    aspect-ratio: 2/1;
-  }
 }
 
 @media (orientation: landscape) {
-  .numpad-item {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 600;
-    aspect-ratio: 2/1;
-  }
-
   .delete-image {
     width: 55px;
   }

@@ -1,0 +1,29 @@
+<app-atom-layout>
+  <div class="w-100 text-center">
+    <div class="portrait-row">
+      <div class="portrait-column w-40">
+        <img
+          class="d-block w-100 mx-auto"
+          style="max-width: 900px"
+          [src]="'welcome-1.png' | getSrc: 'common'"
+          alt=""
+        />
+      </div>
+      <div class="portrait-column w-60">
+        <h2 class="fz-64 fw-semibold c-white my-4">Tek Tıkla Fatura Öde</h2>
+
+        <p class="c-white fz-36 mx-auto mb-5" style="max-width: 750px">
+          Mağaza’ya özel indirimli paketlerleTurkcell’e gelene ek
+          <span class="fw-bold">8 GB</span> hediye!
+        </p>
+
+        <button
+          class="btn primary-button w-auto px-5"
+          (click)="router.navigate([ROUTE_PATHS.services])"
+        >
+          Başla
+        </button>
+      </div>
+    </div>
+  </div>
+</app-atom-layout>

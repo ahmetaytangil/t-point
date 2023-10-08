@@ -1,14 +1,39 @@
-<div class="page-splash container-fluid">
-  <div class="text-center">
+<div class="page-splash">
+  <div class="container position-relative" style="height: 100vh">
     <img
-      class="w-100 splash-logo"
-      [src]="'logo-white.png' | getSrc:'logo'"
+      [src]="'turkcell-icon-yellow.svg' | getSrc: 'logo'"
+      class="lef-top-abs"
       alt=""
-    >
-    <atom-button
-      text="Devam Et"
-      variant="secondary mx-auto"
-      (onClick)="router.navigate([ROUTE_PATHS.extra_packages])"
-    ></atom-button>
+    />
+    <div class="page-splash">
+      <div class="w-100 text-center">
+        <div class="portrait-row">
+          <div class="portrait-column w-40">
+            <img
+              class="d-block w-100 mx-auto"
+              style="max-width: 600px"
+              [src]="'splash.png' | getSrc: 'common'"
+              alt=""
+            />
+          </div>
+          <div class="portrait-column w-60">
+            <h2 class="fz-64 fw-semibold c-white my-4">Hoşgeldiniz</h2>
+
+            <p class="c-white fz-36 mx-auto mb-5" style="max-width: 750px">
+              Sisteme giriş yaparak müşterilerin Turkcell ayrıcalıklarından
+              faydalanmasını sağlayabilirsiniz.
+            </p>
+
+            <a [routerLink]="ROUTE_PATHS.login">
+              <img
+                class="cursor-pointer"
+                [src]="'icon-bg-white-arrow-right.svg' | getSrc"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

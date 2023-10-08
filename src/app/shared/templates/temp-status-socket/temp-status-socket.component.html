@@ -1,0 +1,76 @@
+<app-atom-layout
+  [enableRoutePrev]="!currentSocketData"
+  (onClickPrev)="handlePrev()"
+  variant="secondary"
+  [disableAlign]="!currentSocketData"
+  bgVector="./assets/images/common/bg-vector.png"
+>
+  <div class="w-100" *ngIf="!currentSocketData">
+    <div class="invoice-header">
+      <img class="me-2" [src]="'icon-money-white.svg' | getSrc" alt="" />
+      <h2 class="headline-4-5 c-white fw-regular">
+        Lütfen Ödemeyi tamamlayın. -
+        <span class="c-yellow"
+          >Ödenecek Tutar:
+          {{ pageService.currentInvoiceStatus?.total_amount }} TL</span
+        >
+      </h2>
+    </div>
+
+    <div class="w-100 text-center">
+      <div class="pay-text">
+        <p>Ödeme sürecini tamamlayınız.</p>
+        <h2>Kartınızı Buraya Okutunuz.</h2>
+      </div>
+
+      <img width="400" [src]="'pos.png' | getSrc: 'common'" alt="" />
+    </div>
+  </div>
+
+  <div class="w-100" *ngIf="currentSocketData?.status === 'WAIT_INVOICE'">
+    <div class="w-100 text-center">
+      <img
+        width="220"
+        [src]="'turkcell-icon-yellow.svg' | getSrc: 'logo'"
+        alt=""
+      />
+      <h2 class="c-yellow fz-48 mt-2">Lütfen bekleyin</h2>
+      <p class="fz-40 fw-medium mt-3">
+        Lütfen bekleyin işleminizi <br />
+        gerçekleştiriyoruz.
+      </p>
+    </div>
+  </div>
+
+  <div class="w-100" *ngIf="currentSocketData?.status === 'PAYMENT_SUCCESS'">
+    <div class="w-100 text-center">
+      <img width="220" [src]="'circle-green.svg' | getSrc: 'common'" alt="" />
+      <h2 class="c-green fz-48 mt-2">Ödeme!</h2>
+      <p class="fz-40 fw-medium mt-3">
+        Ödeme Başarıyla Tamamlanmıştır. <br />
+        İlginiz için Teşekkür Ederiz.
+      </p>
+
+      <div class="socket-btns-outer">
+        <div class="btn-finish s-btns" (click)="handleFinish()">Bitir</div>
+        <div class="btn-new s-btns" (click)="handlePrev()">Yeni Fatura</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-100" *ngIf="currentSocketData?.status === 'INVOICE_SUCCESS'">
+    <div class="w-100 text-center">
+      <img width="220" [src]="'circle-green.svg' | getSrc: 'common'" alt="" />
+      <h2 class="c-green fz-48 mt-2">Tamamlandı!</h2>
+      <p class="fz-40 fw-medium mt-3">
+        İşleminiz Başarıyla Tamamlanmıştır. <br />
+        İlginiz için Teşekkür Ederiz.
+      </p>
+
+      <div class="socket-btns-outer">
+        <div class="btn-finish s-btns" (click)="handleFinish()">Bitir</div>
+        <div class="btn-new s-btns" (click)="handlePrev()">Yeni Fatura</div>
+      </div>
+    </div>
+  </div>
+</app-atom-layout>

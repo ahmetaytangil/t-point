@@ -1,0 +1,41 @@
+<div
+  class="page-splash {{ bgVector ? 'with-bg' : '' }} {{
+    disableAlign ? 'disable-align' : ''
+  }} {{ variant }}"
+  [ngStyle]="{ 'background-image': 'url(' + bgVector + ')' }"
+>
+  <div class="container position-relative" style="height: 100vh">
+    <div class="header-auth abs">
+      <img
+        [src]="'turkcell-icon-yellow.svg' | getSrc: 'logo'"
+        alt=""
+        (click)="onDoubleClick()"
+      />
+
+      <button
+        *ngIf="enableRoutePrev"
+        class="btn secondary-button {{ variant }}"
+        (click)="onClickPrev.emit()"
+      >
+        <img
+          [src]="
+            (variant === 'secondary'
+              ? 'icon-arrow-left-blue.svg'
+              : 'icon-arrow-left-light.svg'
+            ) | getSrc
+          "
+          width="40"
+          alt=""
+        />
+        <span class="ms-1">Geri</span>
+      </button>
+    </div>
+    <div
+      class="page-splash second {{ disableAlign ? 'disable-align' : '' }} {{
+        variant
+      }}"
+    >
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

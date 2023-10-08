@@ -1,0 +1,117 @@
+<div class="page-splash">
+  <div class="container position-relative" style="height: 100vh">
+    <div class="header-auth abs">
+      <img [src]="'turkcell-icon-yellow.svg' | getSrc: 'logo'" alt="" />
+
+      <button
+        class="btn secondary-button"
+        (click)="
+          verificationForm
+            ? resetVerificationForm()
+            : router.navigate([ROUTE_PATHS.splash])
+        "
+      >
+        <img [src]="'icon-arrow-left-light.svg' | getSrc" width="40" alt="" />
+        <span class="ms-1">Geri</span>
+      </button>
+    </div>
+
+    <div class="page-splash">
+      <div class="w-100">
+        <div class="mb-3" style="height: 300px">
+          <app-atom-counter
+            (handleOnCountDownComplete)="resetVerificationForm()"
+            *ngIf="verificationForm"
+          ></app-atom-counter>
+          <img
+            class="logo-light d-block mx-auto mt-5"
+            [src]="'logo-light.svg' | getSrc: 'logo'"
+            alt=""
+            *ngIf="!verificationForm"
+          />
+        </div>
+
+        <form
+          [formGroup]="verificationForm"
+          class="portrait-row"
+          *ngIf="verificationForm"
+        >
+          <div class="portrait-column">
+            <div class="otp-row">
+              <div class="otp-item" *ngFor="let num of localOtp">
+                {{ getSlice(num) }}
+              </div>
+            </div>
+
+            <button
+              class="btn primary-button mb-2"
+              (click)="handleVerification()"
+            >
+              Giriş Yap
+            </button>
+
+            <h2 class="fz-36 fw-semibold c-white text-center mb-5">
+              Lütfen cep telefonunuza gönderilen doğrulama kodunu giriniz.
+            </h2>
+          </div>
+
+          <div class="portrait-column">
+            <div class="px-5">
+              <atom-numpad
+                (onClickNumber)="addToForm($event, 'otp_code')"
+                (onClickAllDelete)="deleteAll('otp_code')"
+                (onClickDelete)="deleteLastNumber('otp_code')"
+                variant="secondary"
+              ></atom-numpad>
+            </div>
+          </div>
+        </form>
+
+        <form
+          [formGroup]="authForm"
+          class="portrait-row"
+          *ngIf="!verificationForm"
+        >
+          <div class="portrait-column">
+            <div
+              class="primary-input mb-2"
+              [ngClass]="getValid('mobile_phone')"
+            >
+              <input
+                type="text"
+                class="reset-input"
+                formControlName="mobile_phone"
+                placeholder="+90("
+                mask="(000) 000-0000"
+                prefix="+90"
+                readonly
+              />
+            </div>
+
+            <button
+              class="btn primary-button mb-2"
+              (click)="handleStartLogin()"
+            >
+              Doğrula
+            </button>
+
+            <h2 class="fz-36 fw-semibold c-white text-center mb-5">
+              Lütfen sisteme kayıtlı cep telefonu numarasını yazınız.
+            </h2>
+          </div>
+
+          <div class="portrait-column">
+            <div class="px-5">
+              <atom-numpad
+                (onClickNumber)="addToForm($event, 'mobile_phone')"
+                (onClickAllDelete)="deleteAll('mobile_phone')"
+                (onClickDelete)="deleteLastNumber('mobile_phone')"
+                variant="secondary"
+              ></atom-numpad>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

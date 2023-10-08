@@ -1,0 +1,73 @@
+<app-atom-layout
+  [enableRoutePrev]="true"
+  (onClickPrev)="handlePrev()"
+  variant="secondary"
+  [disableAlign]="true"
+>
+  <div class="w-100">
+    <div class="invoice-header">
+      <img class="me-2" [src]="'icon-money-white.svg' | getSrc" alt="" />
+      <h2 class="headline-4-5 c-white fw-regular">
+        Fatura Ödeme - <span class="c-yellow">Cep Telefonu Faturası</span>
+      </h2>
+    </div>
+
+    <div
+      class="invoice-card"
+      *ngFor="let invoice of pageService.invoicesData?.invoices || []"
+    >
+      <div class="invoice-card-start">
+        <div class="invoice-card-start-item">
+          <img [src]="'invoice-user.svg' | getSrc" width="32" alt="" />
+          <div class="invoice-start-content">
+            <p>İsim Soyisim</p>
+            <h2>{{ invoice.name }}</h2>
+          </div>
+        </div>
+        <div class="invoice-card-start-item">
+          <img [src]="'invoice-phone.svg' | getSrc" alt="" />
+          <div class="invoice-start-content">
+            <p>Telefon Numarası</p>
+            <h2>{{ invoice.phone }}</h2>
+          </div>
+        </div>
+        <div class="invoice-card-start-item">
+          <img [src]="'invoice-num.svg' | getSrc" width="32" alt="" />
+          <div class="invoice-start-content">
+            <p>Fatura Numarası</p>
+            <h2>{{ invoice.invoice_no }}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="invoice-card-middle">
+        <div class="invoice-card-middle-item">
+          <span>Fatura Tarihi :</span>
+          <span>{{ formatDates("dd.MM.yyyy", invoice.invoice_date) }}</span>
+        </div>
+        <div class="invoice-card-middle-item">
+          <span>Fatura Dönemi :</span>
+          <span>{{ formatDates("MMMM / yyyy", invoice.period) }}</span>
+        </div>
+        <div class="invoice-card-middle-item">
+          <span>Son Ödeme Tarihi :</span>
+          <span>{{ formatDates("dd.MM.yyyy", invoice.due_date) }}</span>
+        </div>
+        <div class="invoice-card-middle-item">
+          <span>Ödenecek Tutar :</span>
+          <span>{{ invoice.amount }} TL</span>
+        </div>
+      </div>
+      <div
+        class="invoice-card-btn"
+        (click)="
+          pageService.detailName === 'superonline-bill-payment'
+            ? handlePaySuperOnline(invoice)
+            : handlePayInvoice(invoice)
+        "
+      >
+        Hemen <br />
+        Öde
+      </div>
+    </div>
+  </div>
+</app-atom-layout>

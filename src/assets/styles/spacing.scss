@@ -314,8 +314,17 @@ $m5: 5rem;
   padding: $m5 !important;
 }
 
+.px-5 {
+  padding-left: $m5 !important;
+  padding-right: $m5 !important;
+}
+
 @media (max-width: 575.98px) {
   .py-50px {
     padding: 20px 0;
   }
+}
+
+.d-block {
+  display: block;
 }

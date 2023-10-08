@@ -1,0 +1,11 @@
+<div class="dialog-outer">
+  <div>
+    <div class="image-outer {{ data.type }}">
+      <img [src]="'icon-alert-' + data.type + '.svg' | getSrc" alt="" />
+    </div>
+
+    <h2 class="display-5 font-dialog {{ data.type }}">{{ data.name }}</h2>
+
+    <p class="font-p-dialog {{ data.type }}">{{ data.desc }}</p>
+  </div>
+</div>

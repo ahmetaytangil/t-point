@@ -68,6 +68,30 @@
   line-height: 1.1!important;
 }
 
+.fz-36 {
+  @include fontSize(36);
+  margin: 0!important;
+  line-height: 45px !important;
+}
+
+.fz-40 {
+  @include fontSize(40);
+  margin: 0!important;
+  line-height: 124% !important;
+}
+
+.fz-48 {
+  @include fontSize(48);
+  margin: 0!important;
+  line-height: 124% !important;
+}
+
+.fz-64 {
+  @include fontSize(64);
+  margin: 0!important;
+  line-height: normal !important;
+}
+
 .body-1 {
   @include fontSize(16);
   margin: 0!important;

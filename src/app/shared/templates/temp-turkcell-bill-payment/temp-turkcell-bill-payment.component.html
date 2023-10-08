@@ -1,0 +1,172 @@
+<app-atom-layout
+  [enableRoutePrev]="true"
+  (onClickPrev)="handlePrev()"
+  variant="secondary"
+>
+  <div class="cards-row position-relative" *ngIf="!method">
+    <h2 class="font-head-cards">Turkcell Fatura Ödeme</h2>
+    <div class="cards-row-item" (click)="method = 'own'">
+      <div class="p-2 text-center">
+        <div class="cards-circle">
+          <img [src]="'kendi_hattim.svg' | getSrc: 'common'" alt="" />
+        </div>
+        <h2 class="fz-36 c-blue mb-0">Kendi Hattım</h2>
+      </div>
+    </div>
+    <div class="cards-row-item" (click)="method = 'other'">
+      <div class="p-2 text-center">
+        <div class="cards-circle">
+          <img [src]="'baskasinin_hatti.svg' | getSrc: 'common'" alt="" />
+        </div>
+        <h2 class="fz-36 c-blue mb-0">Başkasının Hattı</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-100" *ngIf="method && !pageService.verifiedNumber">
+    <div class="mb-3" style="height: 300px">
+      <app-atom-counter
+        color="blue"
+        [handleSetCountDown]="120"
+        (handleOnCountDownComplete)="resetVerificationForm()"
+        *ngIf="verificationForm"
+      ></app-atom-counter>
+    </div>
+
+    <form
+      [formGroup]="verificationForm"
+      class="portrait-row"
+      *ngIf="verificationForm"
+    >
+      <div class="portrait-column" *ngIf="!enableOtherPhoneSection">
+        <div class="otp-row">
+          <div class="otp-item" *ngFor="let num of localOtp">
+            {{ getSlice(num) }}
+          </div>
+        </div>
+
+        <button class="btn primary-button mb-2" (click)="handleVerification()">
+          DOĞRULA
+        </button>
+
+        <h2 class="fz-36 fw-semibold c-blue text-center mb-5">
+          Lütfen cep telefonunuza gönderilen doğrulama kodunu giriniz.
+        </h2>
+      </div>
+
+      <div class="portrait-column" *ngIf="enableOtherPhoneSection">
+        <h2 class="c-blue fz-36 mb-3">
+          Turkcell Mobil Hat Fatura Borç Sorgulama ve Ödeme
+        </h2>
+        <div
+          class="primary-input mb-2 sms-side"
+          [ngClass]="{
+            'is-invalid':
+              verificationForm.controls['phone_number'].invalid &&
+              verificationForm.controls['phone_number'].touched,
+            'is-valid':
+              verificationForm.controls['phone_number'].valid &&
+              verificationForm.controls['phone_number'].touched
+          }"
+        >
+          <img
+            class="me-4"
+            width="80"
+            [src]="'sms.png' | getSrc: 'common'"
+            alt=""
+          />
+          <input
+            type="text"
+            class="reset-input"
+            formControlName="phone_number"
+            mask="0 000 000 00 00"
+            readonly
+          />
+        </div>
+
+        <button class="btn primary-button mb-2" (click)="handleVerification()">
+          SORGULA
+        </button>
+
+        <h2 class="fz-36 fw-semibold c-blue text-center mb-5">
+          Lütfen ödeme yapmak istediğiniz telefon numarasını giriniz.
+        </h2>
+      </div>
+
+      <div class="portrait-column">
+        <div class="px-5">
+          <atom-numpad
+            (onClickNumber)="
+              addToForm(
+                $event,
+                enableOtherPhoneSection ? 'phone_number' : 'otp_code'
+              )
+            "
+            (onClickAllDelete)="
+              deleteAll(enableOtherPhoneSection ? 'phone_number' : 'otp_code')
+            "
+            (onClickDelete)="
+              deleteLastNumber(
+                enableOtherPhoneSection ? 'phone_number' : 'otp_code'
+              )
+            "
+            [withFooter]="true"
+            variant="secondary"
+          ></atom-numpad>
+        </div>
+      </div>
+    </form>
+
+    <form [formGroup]="authForm" class="portrait-row" *ngIf="!verificationForm">
+      <div class="portrait-column">
+        <h2 class="c-blue fz-36 mb-3">Lütfen telefon numaranızı doğrulayın.</h2>
+        <div
+          class="primary-input mb-2 sms-side"
+          [ngClass]="{
+            'is-invalid':
+              authForm.controls['mobile_phone'].invalid &&
+              authForm.controls['mobile_phone'].touched,
+            'is-valid':
+              authForm.controls['mobile_phone'].valid &&
+              authForm.controls['mobile_phone'].touched
+          }"
+        >
+          <img
+            class="me-4"
+            width="80"
+            [src]="'sms.png' | getSrc: 'common'"
+            alt=""
+          />
+          <input
+            type="text"
+            class="reset-input"
+            formControlName="mobile_phone"
+            mask="0 000 000 00 00"
+            readonly
+          />
+        </div>
+
+        <button class="btn primary-button mb-2" (click)="handleStartLogin()">
+          GÖNDER
+        </button>
+
+        <h2 class="fz-36 fw-semibold c-blue text-center mb-5">
+          İşlem güvenliği için cep telefonu numaranızı doğrulamanız
+          gerekmektedir.
+        </h2>
+      </div>
+
+      <div class="portrait-column">
+        <div class="px-5">
+          <atom-numpad
+            (onClickNumber)="addToForm($event, 'mobile_phone')"
+            (onClickAllDelete)="deleteAll('mobile_phone')"
+            (onClickDelete)="deleteLastNumber('mobile_phone')"
+            [withFooter]="true"
+            variant="secondary"
+          ></atom-numpad>
+        </div>
+      </div>
+    </form>
+  </div>
+</app-atom-layout>

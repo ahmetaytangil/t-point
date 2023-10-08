@@ -1,0 +1,88 @@
+<app-atom-layout
+  [enableRoutePrev]="true"
+  (onClickPrev)="handlePrev()"
+  variant="secondary"
+  [disableAlign]="!!balanceInstallationData"
+>
+  <div class="w-100">
+    <div class="invoice-header" *ngIf="balanceInstallationData">
+      <img class="me-2" [src]="'icon-money-white.svg' | getSrc" alt="" />
+      <h2 class="headline-4-5 c-white fw-regular">Bakiye Yükleme</h2>
+    </div>
+
+    <div
+      class="cards-row position-relative no-margin"
+      *ngIf="balanceInstallationData"
+    >
+      <div
+        class="cards-row-item three-columns"
+        *ngFor="let item of balanceInstallationData?.packages || []"
+        (click)="handlePay(item)"
+      >
+        <div class="p-2 text-center">
+          <div class="cards-circle">
+            <h2 class="circle-text">
+              {{ item.price }} <small class="circle-small">TL</small>
+            </h2>
+          </div>
+          <h2 class="fz-36 c-blue mb-0">Yükle</h2>
+        </div>
+      </div>
+    </div>
+
+    <form
+      [formGroup]="subscriptionForm"
+      class="portrait-row"
+      *ngIf="!balanceInstallationData"
+    >
+      <div class="portrait-column">
+        <h2 class="c-blue fz-36 mb-3">Turkcell Mobil Hat Bakiye Yükleme</h2>
+        <div
+          class="primary-input mb-2 sms-side"
+          [ngClass]="{
+            'is-invalid':
+              subscriptionForm.controls['phone_number'].invalid &&
+              subscriptionForm.controls['phone_number'].touched,
+            'is-valid':
+              subscriptionForm.controls['phone_number'].valid &&
+              subscriptionForm.controls['phone_number'].touched
+          }"
+        >
+          <img
+            class="me-4"
+            width="80"
+            [src]="'sms.png' | getSrc: 'common'"
+            alt=""
+          />
+          <input
+            type="text"
+            class="reset-input"
+            formControlName="phone_number"
+            mask="0000 000 00 00"
+            readonly
+          />
+        </div>
+
+        <button class="btn primary-button mb-2" (click)="handleSubscription()">
+          SORGULA
+        </button>
+
+        <h2 class="fz-36 fw-semibold c-blue text-center mb-5">
+          Lütfen yükleme yapmak istediğiniz telefon numarasını giriniz.
+        </h2>
+      </div>
+
+      <div class="portrait-column">
+        <div class="px-5">
+          <atom-numpad
+            (onClickNumber)="addToForm($event, 'phone_number')"
+            (onClickAllDelete)="deleteAll('phone_number')"
+            (onClickDelete)="deleteLastNumber('phone_number')"
+            [withFooter]="true"
+            variant="secondary"
+          ></atom-numpad>
+        </div>
+      </div>
+    </form>
+  </div>
+</app-atom-layout>

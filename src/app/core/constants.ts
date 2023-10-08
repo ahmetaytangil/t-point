@@ -1,10 +1,16 @@
 export const ROUTE_PATHS = {
-  home: '',
+  home: 'home',
+  splash: '',
   extra_packages: 'extra-packages',
   packages: 'packages',
   package_detail: 'package-detail',
   phone_number: 'phone_number',
   buy: 'buy',
   login_with_qr: 'login-with-qr',
-  after_payment: 'after-payment'
-}
+  after_payment: 'after-payment',
+  serial_number: 'serial-number',
+  login: 'login',
+  auth: 'auth',
+  welcome: 'welcome',
+  services: 'services',
+};

@@ -1,0 +1,55 @@
+<app-atom-layout
+  [enableRoutePrev]="true"
+  (onClickPrev)="handlePrev()"
+  variant="secondary"
+>
+  <div class="w-100">
+    <form [formGroup]="subscriptionForm" class="portrait-row">
+      <div class="portrait-column">
+        <h2 class="c-blue fz-36 mb-3">
+          Turkcell Superonline <br />
+          Fatura Borç Sorgulama ve Ödeme
+        </h2>
+        <div
+          class="primary-input mb-2 sms-side"
+          [ngClass]="{
+            'is-invalid':
+              subscriptionForm.controls['subscription_number'].invalid &&
+              subscriptionForm.controls['subscription_number'].touched,
+            'is-valid':
+              subscriptionForm.controls['subscription_number'].valid &&
+              subscriptionForm.controls['subscription_number'].touched
+          }"
+        >
+          <input
+            type="text"
+            class="reset-input"
+            formControlName="subscription_number"
+            mask="0000000000"
+            readonly
+          />
+        </div>
+
+        <button class="btn primary-button mb-2" (click)="handleSubscription()">
+          SORGULA
+        </button>
+
+        <h2 class="fz-36 fw-semibold c-blue text-center mb-5">
+          Lütfen ödeme yapmak istediğiniz müşteri numarasını giriniz.
+        </h2>
+      </div>
+
+      <div class="portrait-column">
+        <div class="px-5">
+          <atom-numpad
+            (onClickNumber)="addToForm($event, 'subscription_number')"
+            (onClickAllDelete)="deleteAll('subscription_number')"
+            (onClickDelete)="deleteLastNumber('subscription_number')"
+            [withFooter]="true"
+            variant="secondary"
+          ></atom-numpad>
+        </div>
+      </div>
+    </form>
+  </div>
+</app-atom-layout>
