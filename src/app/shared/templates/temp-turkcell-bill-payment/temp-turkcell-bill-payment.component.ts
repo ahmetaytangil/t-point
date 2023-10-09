@@ -42,11 +42,9 @@ export class TempTurkcellBillPaymentComponent {
           next: (res) => {
             this.pageService.verifiedNumber = true;
             this.pageService.invoicesData = res;
-          },
-          error: (error) => this.handleError(error),
-          complete: () => {
             this.publicService.postLoading = false;
           },
+          error: (error) => this.handleError(error),
         });
       }
     }
@@ -104,6 +102,7 @@ export class TempTurkcellBillPaymentComponent {
   }
 
   handleError(error: any) {
+    this.publicService.postLoading = false;
     this.dialog.open(AtomAlertModalsComponent, {
       data: {
         type: 'blue',

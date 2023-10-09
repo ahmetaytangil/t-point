@@ -64,6 +64,9 @@ export class TempStatusSocketComponent implements OnInit {
   }
 
   handleFinish() {
+    this.pageService.verifiedNumber = false;
+    this.pageService.currentInvoiceStatus = undefined;
+    this.pageService.invoicesData = undefined;
     this.currentSocketData = undefined;
     this.router.navigate(
       this.pageService.currentServiceName

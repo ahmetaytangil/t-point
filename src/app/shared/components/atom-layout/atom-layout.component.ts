@@ -13,6 +13,7 @@ export class AtomLayoutComponent {
   @Input() variant: string = '';
   @Input() disableAlign: boolean = false;
   @Input() bgVector: string = '';
+  @Input() notFend: boolean = false;
   clickCount = 0;
 
   constructor(private loginService: LoginService) {}

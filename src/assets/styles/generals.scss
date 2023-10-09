@@ -274,10 +274,19 @@ html {
   &.second {
     background-color: transparent !important;
   }
-
-
-
 }
+
+@media (max-height: 1680px) and (orientation: portrait) {
+  .page-splash {
+    align-items: flex-start;
+    overflow-y: auto;
+
+    &.second {
+      padding-top: 200px;
+    }
+  }
+}
+
 
 .splash-logo {
   max-width: 1000px;
@@ -286,6 +295,13 @@ html {
 @media (orientation: landscape) {
   .splash-logo {
     max-width: 500px;
+  }
+
+  .page-splash {
+
+    &:not(&.no-fend) {
+      align-items: flex-end;
+    }
   }
 }
 
@@ -413,6 +429,10 @@ button, select {
   align-items: center;
   justify-content: space-between;
 
+  &.bg-blue {
+    background-color: var(--primary);;
+  }
+
   &.abs {
     position: absolute;
     top: 0;
@@ -421,6 +441,7 @@ button, select {
 
     &.secondary {
       background-color: #F0F6FF;
+      z-index: 9;
     }
   }
 }
@@ -471,6 +492,7 @@ button, select {
   width: 100%;
   flex-wrap: wrap;
   justify-content: space-between;
+  max-width: 850px;
 
   &.no-margin {
     margin: 0;
@@ -713,3 +735,28 @@ button, select {
     font-weight: 500;
   }
 }
+
+@media (orientation: landscape) {
+  .primary-input, .primary-button {
+    height: 100px;
+  }
+
+  .primary-input {
+    padding: 10px;
+  }
+
+  .me-4 {
+    margin-right: 2rem!important;
+  }
+}
+
+@media (max-height: 1520px) and (orientation: portrait) {
+  .primary-input, .primary-button {
+    height: 100px;
+  }
+
+  .mb-5 {
+    margin-bottom: 2rem !important;
+  }
+}
+

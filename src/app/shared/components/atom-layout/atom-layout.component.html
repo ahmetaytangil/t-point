@@ -1,7 +1,7 @@
 <div
-  class="page-splash {{ bgVector ? 'with-bg' : '' }} {{
-    disableAlign ? 'disable-align' : ''
-  }} {{ variant }}"
+  class="page-splash {{ notFend ? 'no-fend' : '' }} {{
+    bgVector ? 'with-bg' : ''
+  }} {{ disableAlign ? 'disable-align' : '' }} {{ variant }}"
   [ngStyle]="{ 'background-image': 'url(' + bgVector + ')' }"
 >
   <div class="container position-relative" style="height: 100vh">
@@ -31,9 +31,9 @@
       </button>
     </div>
     <div
-      class="page-splash second {{ disableAlign ? 'disable-align' : '' }} {{
-        variant
-      }}"
+      class="page-splash {{ notFend ? 'no-fend' : '' }} second {{
+        disableAlign ? 'disable-align' : ''
+      }} {{ variant }}"
     >
       <ng-content></ng-content>
     </div>
