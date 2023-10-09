@@ -18,17 +18,23 @@
 
     <div class="page-splash">
       <div class="w-100">
-        <div class="mb-3" style="height: 300px">
+        <div class="mb-3">
           <app-atom-counter
             (handleOnCountDownComplete)="resetVerificationForm()"
             *ngIf="verificationForm"
           ></app-atom-counter>
-          <img
-            class="logo-light d-block mx-auto mt-5"
-            [src]="'logo-light.svg' | getSrc: 'logo'"
-            alt=""
-            *ngIf="!verificationForm"
-          />
+
+          <div class="login-row" *ngIf="!verificationForm">
+            <img
+              class="logo-light d-block"
+              [src]="'logo-light.svg' | getSrc: 'logo'"
+              alt=""
+            />
+            <h2>
+              Self Servis Kiosk <br />
+              Bayi Giriş Ekranı
+            </h2>
+          </div>
         </div>
 
         <form
@@ -72,16 +78,20 @@
         >
           <div class="portrait-column">
             <div
-              class="primary-input mb-2"
+              class="primary-input mb-2 sms-side"
               [ngClass]="getValid('mobile_phone')"
             >
+              <img
+                class="me-4"
+                width="80"
+                [src]="'sms.png' | getSrc: 'common'"
+                alt=""
+              />
               <input
                 type="text"
                 class="reset-input"
                 formControlName="mobile_phone"
-                placeholder="+90("
-                mask="(000) 000-0000"
-                prefix="+90"
+                mask="0 000 000 00 00"
                 readonly
               />
             </div>
