@@ -38,7 +38,7 @@
             type="text"
             class="reset-input"
             formControlName="phone_number"
-            mask="0000 000 00 00"
+            mask="0 000 000 00 00"
             readonly
           />
         </div>
@@ -53,15 +53,13 @@
       </div>
 
       <div class="portrait-column">
-        <div class="px-5">
-          <atom-numpad
-            (onClickNumber)="addToForm($event, 'phone_number')"
-            (onClickAllDelete)="deleteAll('phone_number')"
-            (onClickDelete)="deleteLastNumber('phone_number')"
-            [withFooter]="true"
-            variant="secondary"
-          ></atom-numpad>
-        </div>
+        <atom-numpad
+          (onClickNumber)="addToForm($event, 'phone_number')"
+          (onClickAllDelete)="deleteAll('phone_number')"
+          (onClickDelete)="deleteLastNumber('phone_number')"
+          [withFooter]="true"
+          variant="secondary"
+        ></atom-numpad>
       </div>
     </form>
   </div>

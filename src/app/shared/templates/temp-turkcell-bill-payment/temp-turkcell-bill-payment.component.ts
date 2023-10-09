@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ROUTE_PATHS } from '../../../core/constants';
 import { PageServiceService } from '../../../features/page-services/page-service.service';
 import { AtomAlertModalsComponent } from '../../components/atom-alert-modals/atom-alert-modals.component';
+import { PublicService } from '../../logic/public.service';
 
 @Component({
   selector: 'app-temp-turkcell-bill-payment',
@@ -26,6 +27,7 @@ export class TempTurkcellBillPaymentComponent {
     public pageService: PageServiceService,
     private dialog: MatDialog,
     public router: Router,
+    public publicService: PublicService,
   ) {}
 
   handleVerification() {
@@ -35,12 +37,16 @@ export class TempTurkcellBillPaymentComponent {
       const form = this.verificationForm;
 
       if (form?.valid) {
+        this.publicService.postLoading = true;
         this.pageService.invoices(form.value).subscribe({
           next: (res) => {
             this.pageService.verifiedNumber = true;
             this.pageService.invoicesData = res;
           },
           error: (error) => this.handleError(error),
+          complete: () => {
+            this.publicService.postLoading = false;
+          },
         });
       }
     }

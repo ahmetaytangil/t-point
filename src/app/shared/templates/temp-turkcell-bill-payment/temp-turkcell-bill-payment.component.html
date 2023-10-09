@@ -94,26 +94,24 @@
       </div>
 
       <div class="portrait-column">
-        <div class="px-5">
-          <atom-numpad
-            (onClickNumber)="
-              addToForm(
-                $event,
-                enableOtherPhoneSection ? 'phone_number' : 'otp_code'
-              )
-            "
-            (onClickAllDelete)="
-              deleteAll(enableOtherPhoneSection ? 'phone_number' : 'otp_code')
-            "
-            (onClickDelete)="
-              deleteLastNumber(
-                enableOtherPhoneSection ? 'phone_number' : 'otp_code'
-              )
-            "
-            [withFooter]="true"
-            variant="secondary"
-          ></atom-numpad>
-        </div>
+        <atom-numpad
+          (onClickNumber)="
+            addToForm(
+              $event,
+              enableOtherPhoneSection ? 'phone_number' : 'otp_code'
+            )
+          "
+          (onClickAllDelete)="
+            deleteAll(enableOtherPhoneSection ? 'phone_number' : 'otp_code')
+          "
+          (onClickDelete)="
+            deleteLastNumber(
+              enableOtherPhoneSection ? 'phone_number' : 'otp_code'
+            )
+          "
+          [withFooter]="true"
+          variant="secondary"
+        ></atom-numpad>
       </div>
     </form>
 
@@ -157,15 +155,13 @@
       </div>
 
       <div class="portrait-column">
-        <div class="px-5">
-          <atom-numpad
-            (onClickNumber)="addToForm($event, 'mobile_phone')"
-            (onClickAllDelete)="deleteAll('mobile_phone')"
-            (onClickDelete)="deleteLastNumber('mobile_phone')"
-            [withFooter]="true"
-            variant="secondary"
-          ></atom-numpad>
-        </div>
+        <atom-numpad
+          (onClickNumber)="addToForm($event, 'mobile_phone')"
+          (onClickAllDelete)="deleteAll('mobile_phone')"
+          (onClickDelete)="deleteLastNumber('mobile_phone')"
+          [withFooter]="true"
+          variant="secondary"
+        ></atom-numpad>
       </div>
     </form>
   </div>

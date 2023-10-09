@@ -56,14 +56,12 @@
           </div>
 
           <div class="portrait-column">
-            <div class="px-5">
-              <atom-numpad
-                (onClickNumber)="addToForm($event, 'otp_code')"
-                (onClickAllDelete)="deleteAll('otp_code')"
-                (onClickDelete)="deleteLastNumber('otp_code')"
-                variant="secondary"
-              ></atom-numpad>
-            </div>
+            <atom-numpad
+              (onClickNumber)="addToForm($event, 'otp_code')"
+              (onClickAllDelete)="deleteAll('otp_code')"
+              (onClickDelete)="deleteLastNumber('otp_code')"
+              variant="secondary"
+            ></atom-numpad>
           </div>
         </form>
 
@@ -101,14 +99,12 @@
           </div>
 
           <div class="portrait-column">
-            <div class="px-5">
-              <atom-numpad
-                (onClickNumber)="addToForm($event, 'mobile_phone')"
-                (onClickAllDelete)="deleteAll('mobile_phone')"
-                (onClickDelete)="deleteLastNumber('mobile_phone')"
-                variant="secondary"
-              ></atom-numpad>
-            </div>
+            <atom-numpad
+              (onClickNumber)="addToForm($event, 'mobile_phone')"
+              (onClickAllDelete)="deleteAll('mobile_phone')"
+              (onClickDelete)="deleteLastNumber('mobile_phone')"
+              variant="secondary"
+            ></atom-numpad>
           </div>
         </form>
       </div>

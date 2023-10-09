@@ -418,6 +418,10 @@ button, select {
     top: 0;
     left: 0;
     right: 0;
+
+    &.secondary {
+      background-color: #F0F6FF;
+    }
   }
 }
 
@@ -572,8 +576,10 @@ button, select {
 }
 
 .invoice-card-middle {
-  padding-top: 20px;
   padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .invoice-card-start {
@@ -682,4 +688,12 @@ button, select {
 .btn-new {
   background: #0348AC;
   color: #fff;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999999;
 }

@@ -10,6 +10,7 @@ const localStorageKey = `${environment.appKey}-serial-number`;
   providedIn: 'root',
 })
 export class PublicService {
+  postLoading: boolean = false;
   serial_number: string | undefined;
 
   constructor(private router: Router) {}

@@ -17,7 +17,7 @@ import { AtomAlertModalsComponent } from '../../components/atom-alert-modals/ato
 })
 export class TempSuperonlineBillPaymentComponent {
   subscriptionForm = this.fb.group({
-    subscription_number: ['', [Validators.required, Validators.minLength(10)]],
+    subscription_number: ['', [Validators.required, Validators.minLength(8)]],
   });
 
   constructor(

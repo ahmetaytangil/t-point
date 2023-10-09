@@ -25,7 +25,7 @@
             type="text"
             class="reset-input"
             formControlName="subscription_number"
-            mask="0000000000"
+            mask="00000000"
             readonly
           />
         </div>
@@ -40,15 +40,13 @@
       </div>
 
       <div class="portrait-column">
-        <div class="px-5">
-          <atom-numpad
-            (onClickNumber)="addToForm($event, 'subscription_number')"
-            (onClickAllDelete)="deleteAll('subscription_number')"
-            (onClickDelete)="deleteLastNumber('subscription_number')"
-            [withFooter]="true"
-            variant="secondary"
-          ></atom-numpad>
-        </div>
+        <atom-numpad
+          (onClickNumber)="addToForm($event, 'subscription_number')"
+          (onClickAllDelete)="deleteAll('subscription_number')"
+          (onClickDelete)="deleteLastNumber('subscription_number')"
+          [withFooter]="true"
+          variant="secondary"
+        ></atom-numpad>
       </div>
     </form>
   </div>
