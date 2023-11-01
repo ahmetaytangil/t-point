@@ -399,6 +399,7 @@ button, select {
 @media (orientation: landscape) {
   .portrait-row {
     display: flex;
+    align-items: center;
   }
 
   .portrait-column {
@@ -413,8 +414,28 @@ button, select {
       width: 60%;
     }
   }
+}
 
+@media (orientation: portrait) and (max-height: 1680px) {
+  .portrait-row {
+    padding-top: 50px;
+  }
+}
 
+@media (orientation: portrait) and (max-height: 1350px) {
+  .portrait-row {
+    padding-top: 90px;
+  }
+
+  .splash-image {
+    max-width: 400px!important;
+  }
+}
+
+@media (orientation: portrait) and (max-width: 575px) {
+  .portrait-row {
+    padding-top: 150px;
+  }
 }
 
 .lef-top-abs {
@@ -760,3 +781,6 @@ button, select {
   }
 }
 
+.align--really-center {
+  align-items: center!important;
+}

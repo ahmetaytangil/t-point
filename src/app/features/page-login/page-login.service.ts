@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivateFn, Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { ROUTE_PATHS } from '../../core/constants';
+import { PublicService } from '../../shared/logic/public.service';
 
 const localStorageKey = `${environment.appKey}-auth`;
 
@@ -15,12 +16,15 @@ export class LoginService {
   constructor(
     private http: HttpClient,
     private router: Router,
+    private publicService: PublicService,
   ) {}
 
   logOut() {
     this.userWelcome = undefined;
     localStorage.removeItem(localStorageKey);
-    this.redirectToLogin();
+    this.publicService.deleteSerialNumber();
+    this.publicService.redirectSerialNumberPage();
+    // this.redirectToLogin();
   }
 
   authLogin(body: any) {

@@ -15,6 +15,11 @@ export class PublicService {
 
   constructor(private router: Router) {}
 
+  deleteSerialNumber() {
+    this.serial_number = undefined;
+    localStorage.removeItem(localStorageKey);
+  }
+
   saveSerialNumberToLocalStorage(serial_number: string) {
     try {
       localStorage.setItem(localStorageKey, serial_number);
