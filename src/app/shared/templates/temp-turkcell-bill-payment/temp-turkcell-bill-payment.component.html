@@ -115,7 +115,11 @@
       </div>
     </form>
 
-    <form [formGroup]="authForm" class="portrait-row" *ngIf="!verificationForm">
+    <form
+      [formGroup]="authForm"
+      class="portrait-row"
+      *ngIf="!verificationForm && authForm"
+    >
       <div class="portrait-column">
         <h2 class="c-blue fz-36 mb-3">Lütfen telefon numaranızı doğrulayın.</h2>
         <div

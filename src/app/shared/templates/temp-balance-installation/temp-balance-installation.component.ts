@@ -6,10 +6,12 @@ import { Router } from '@angular/router';
 import { ROUTE_PATHS } from '../../../core/constants';
 import {
   BalanceInstallationWelcome,
+  InvoicePayStart,
   Package,
   PageServiceService,
 } from '../../../features/page-services/page-service.service';
 import { AtomAlertModalsComponent } from '../../components/atom-alert-modals/atom-alert-modals.component';
+import { PublicService } from '../../logic/public.service';
 
 @Component({
   selector: 'app-temp-balance-installation',
@@ -28,15 +30,18 @@ export class TempBalanceInstallationComponent {
     private dialog: MatDialog,
     private router: Router,
     private pageService: PageServiceService,
+    private publicService: PublicService,
   ) {}
 
   handleSubscription() {
     if (this.currentForm.valid) {
+      this.publicService.generalLoading = true;
       this.http
         .post<BalanceInstallationWelcome>('/credits', this.currentForm.value)
         .subscribe({
           next: (res) => {
             this.balanceInstallationData = res;
+            this.publicService.generalLoading = false;
           },
           error: (error) => this.handleError(error),
         });
@@ -46,8 +51,9 @@ export class TempBalanceInstallationComponent {
   }
 
   handlePay(packageData: Package) {
+    this.publicService.generalLoading = true;
     this.http
-      .post('/credits/pay', {
+      .post<InvoicePayStart>('/credits/pay', {
         transaction_id: packageData.hash,
         order_id: this.balanceInstallationData?.order_id,
         amount: packageData.price,
@@ -55,13 +61,15 @@ export class TempBalanceInstallationComponent {
       })
       .subscribe({
         next: (res) => {
-          console.log(res);
+          this.pageService.currentInvoiceStatus = res;
+          this.publicService.generalLoading = false;
         },
         error: (error) => this.handleError(error),
       });
   }
 
   handleError(error: any) {
+    this.publicService.generalLoading = false;
     this.dialog.open(AtomAlertModalsComponent, {
       data: {
         type: 'blue',

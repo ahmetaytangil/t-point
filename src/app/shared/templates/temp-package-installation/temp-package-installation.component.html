@@ -5,15 +5,37 @@
   [disableAlign]="!!packageInstallationData"
 >
   <div class="w-100">
-    <div class="invoice-header" *ngIf="packageInstallationData.length">
-      <img class="me-2" [src]="'icon-money-white.svg' | getSrc" alt="" />
-      <h2 class="headline-4-5 c-white fw-regular">Paket Yükleme</h2>
+    <div *ngIf="packageInstallationData">
+      <div class="invoice-header">
+        <img class="me-2" [src]="'icon-money-white.svg' | getSrc" alt="" />
+        <h2 class="headline-4-5 c-white fw-regular">Paket Yükleme</h2>
+      </div>
+
+      <div class="cards-row position-relative no-margin">
+        <div
+          class="cards-row-item three-columns"
+          *ngFor="let item of packageInstallationData?.packages || []"
+          (click)="handlePay(item)"
+        >
+          <div class="w-100 p-2">
+            <div class="card-package-details">
+              <h2 class="c-card-head">{{ item.title }}</h2>
+            </div>
+            <p class="c-card-paragraph">{{ item.price }} TL</p>
+
+            <div class="card-buy">
+              <img [src]="'icon-sign-in.svg' | getSrc: 'icons'" alt="" />
+              <span>Satın Al</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <form
       [formGroup]="subscriptionForm"
       class="portrait-row"
-      *ngIf="!packageInstallationData.length"
+      *ngIf="!packageInstallationData && subscriptionForm"
     >
       <div class="portrait-column">
         <h2 class="c-blue fz-36 mb-3">Turkcell Mobil Hat Paket Yükleme</h2>

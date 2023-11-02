@@ -9,6 +9,7 @@ import {
 import { format } from 'date-fns';
 import { tr } from 'date-fns/locale';
 import { AtomAlertModalsComponent } from '../../components/atom-alert-modals/atom-alert-modals.component';
+import { PublicService } from '../../logic/public.service';
 
 @Component({
   selector: 'app-temp-invoices',
@@ -20,6 +21,7 @@ export class TempInvoicesComponent {
     public pageService: PageServiceService,
     private router: Router,
     private dialog: MatDialog,
+    private publicService: PublicService,
   ) {}
 
   handlePrev() {
@@ -41,6 +43,7 @@ export class TempInvoicesComponent {
   }
 
   handlePayInvoice(invoice: Invoice) {
+    this.publicService.generalLoading = true;
     this.pageService
       .invoicePay({
         transaction_id: invoice.hash,
@@ -50,12 +53,14 @@ export class TempInvoicesComponent {
       .subscribe({
         next: (res) => {
           this.pageService.currentInvoiceStatus = res;
+          this.publicService.generalLoading = false;
         },
         error: (error) => this.handleError(error),
       });
   }
 
   handlePaySuperOnline(invoice: Invoice) {
+    this.publicService.generalLoading = true;
     this.pageService
       .superOnlinePay({
         transaction_id: invoice.hash,
@@ -65,12 +70,14 @@ export class TempInvoicesComponent {
       .subscribe({
         next: (res) => {
           this.pageService.currentInvoiceStatus = res;
+          this.publicService.generalLoading = false;
         },
         error: (error) => this.handleError(error),
       });
   }
 
   handleError(error: any) {
+    this.publicService.generalLoading = false;
     this.dialog.open(AtomAlertModalsComponent, {
       data: {
         type: 'blue',

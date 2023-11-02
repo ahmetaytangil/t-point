@@ -17,7 +17,9 @@
 <app-temp-status-socket
   *ngIf="
     (pageService.detailName === 'turkcell-bill-payment' ||
-      pageService.detailName === 'superonline-bill-payment') &&
+      pageService.detailName === 'superonline-bill-payment' ||
+      pageService.detailName === 'balance-installation' ||
+      pageService.detailName === 'package-installation') &&
     pageService.currentInvoiceStatus
   "
 ></app-temp-status-socket>

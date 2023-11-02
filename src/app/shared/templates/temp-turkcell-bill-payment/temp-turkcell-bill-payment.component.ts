@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -12,15 +12,23 @@ import { PublicService } from '../../logic/public.service';
   templateUrl: './temp-turkcell-bill-payment.component.html',
   styleUrls: ['./temp-turkcell-bill-payment.component.scss'],
 })
-export class TempTurkcellBillPaymentComponent {
+export class TempTurkcellBillPaymentComponent implements OnInit {
   method: string | undefined;
   localOtp = [1, 2, 3, 4, 5, 6];
   enableOtherPhoneSection: boolean = false;
   verificationForm: FormGroup | undefined;
 
-  authForm: FormGroup = this.fb.group({
-    mobile_phone: ['', [Validators.required, Validators.minLength(11)]],
-  });
+  authForm: FormGroup | undefined;
+
+  initForm() {
+    this.authForm = this.fb.group({
+      mobile_phone: ['', [Validators.required, Validators.minLength(11)]],
+    });
+  }
+
+  public ngOnInit(): void {
+    this.initForm();
+  }
 
   constructor(
     private fb: FormBuilder,
@@ -37,12 +45,12 @@ export class TempTurkcellBillPaymentComponent {
       const form = this.verificationForm;
 
       if (form?.valid) {
-        this.publicService.postLoading = true;
+        this.publicService.generalLoading = true;
         this.pageService.invoices(form.value).subscribe({
           next: (res) => {
             this.pageService.verifiedNumber = true;
             this.pageService.invoicesData = res;
-            this.publicService.postLoading = false;
+            this.publicService.generalLoading = false;
           },
           error: (error) => this.handleError(error),
         });
@@ -53,7 +61,8 @@ export class TempTurkcellBillPaymentComponent {
   handleStartLogin() {
     const form = this.authForm;
 
-    if (form.valid) {
+    if (form?.valid) {
+      this.publicService.generalLoading = true;
       this.pageService.smsSend(form.value).subscribe({
         next: (res) => {
           this.verificationForm = this.fb.group({
@@ -64,11 +73,12 @@ export class TempTurkcellBillPaymentComponent {
               [Validators.required, Validators.minLength(11)],
             ],
           });
+          this.publicService.generalLoading = false;
         },
         error: (error) => this.handleError(error),
       });
     } else {
-      form.markAllAsTouched();
+      form?.markAllAsTouched();
     }
   }
 
@@ -81,17 +91,17 @@ export class TempTurkcellBillPaymentComponent {
   }
 
   addToForm(val: number, name: string) {
-    const control = this.currentForm.get(name);
+    const control = this.currentForm?.get(name);
     if (control) control.setValue(control?.value + String(val));
   }
 
   deleteAll(name: string) {
-    const control = this.currentForm.get(name);
+    const control = this.currentForm?.get(name);
     if (control) control.setValue('');
   }
 
   deleteLastNumber(name: string) {
-    const control = this.currentForm.get(name);
+    const control = this.currentForm?.get(name);
     if (control) control.setValue(String(control?.value).slice(0, -1));
   }
 
@@ -102,7 +112,7 @@ export class TempTurkcellBillPaymentComponent {
   }
 
   handleError(error: any) {
-    this.publicService.postLoading = false;
+    this.publicService.generalLoading = false;
     this.dialog.open(AtomAlertModalsComponent, {
       data: {
         type: 'blue',
@@ -113,6 +123,7 @@ export class TempTurkcellBillPaymentComponent {
   }
 
   handlePrev() {
+    this.initForm();
     if (!this.method) {
       this.router.navigate(
         this.pageService.currentServiceName

@@ -52,8 +52,14 @@
       </p>
 
       <div class="socket-btns-outer">
-        <div class="btn-finish s-btns" (click)="handleFinish()">Bitir</div>
-        <div class="btn-new s-btns" (click)="handlePrev()">Yeni Fatura</div>
+        <div
+          class="btn-finish s-btns"
+          style="margin: 0 auto"
+          (click)="handleFinish()"
+        >
+          Bitir
+        </div>
+        <!--<div class="btn-new s-btns" (click)="handlePrev()">Yeni Fatura</div>-->
       </div>
     </div>
   </div>
@@ -68,8 +74,27 @@
       </p>
 
       <div class="socket-btns-outer">
-        <div class="btn-finish s-btns" (click)="handleFinish()">Bitir</div>
-        <div class="btn-new s-btns" (click)="handlePrev()">Yeni Fatura</div>
+        <div
+          class="btn-finish s-btns"
+          (click)="handleFinish()"
+          style="margin: 0 auto"
+        >
+          Bitir
+        </div>
+        <!--<div class="btn-new s-btns" (click)="handlePrev()">Yeni Fatura</div>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="w-100" *ngIf="currentSocketData?.status === 'PAYMENT_ERROR'">
+    <div class="w-100 text-center">
+      <img width="220" [src]="'circle-red.svg' | getSrc: 'common'" alt="" />
+      <h2 class="c-green fz-48 mt-2">Ödeme Alınamadı</h2>
+      <p class="fz-40 fw-medium mt-3">Ödeme İşlemi Gerçekleştirilemedi!</p>
+
+      <div class="socket-btns-outer">
+        <div class="btn-finish s-btns" (click)="handlePrev()">Tekrar Dene</div>
+        <div class="btn-give-up s-btns" (click)="handleFinish()">Vazgeç</div>
       </div>
     </div>
   </div>

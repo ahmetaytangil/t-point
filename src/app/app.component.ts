@@ -5,8 +5,13 @@ import { PublicService } from './shared/logic/public.service';
 @Component({
   selector: 'app-root',
   template: `
-    <div class="progress-bar" *ngIf="publicService.postLoading">
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <div class="loading_general" *ngIf="publicService.generalLoading">
+      <div>
+        <img [src]="'logo-light.svg' | getSrc: 'logo'" alt="" class="mb-2" />
+        <div class="flex-center-center">
+          <mat-spinner></mat-spinner>
+        </div>
+      </div>
     </div>
     <router-outlet></router-outlet>
   `,

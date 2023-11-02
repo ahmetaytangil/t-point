@@ -1,7 +1,12 @@
 <div class="page-splash">
   <div class="container position-relative" style="height: 100vh">
     <div class="header-auth abs bg-blue">
-      <img [src]="'turkcell-icon-yellow.svg' | getSrc: 'logo'" alt="" />
+      <img
+        class="cursor-pointer general_logo"
+        [src]="'turkcell-icon-yellow.svg' | getSrc: 'logo'"
+        alt=""
+        (click)="onDoubleClick()"
+      />
 
       <button
         class="btn secondary-button"

@@ -30,6 +30,17 @@ export class PageLoginComponent implements OnInit {
     public router: Router,
   ) {}
 
+  clickCount = 0;
+
+  onDoubleClick() {
+    this.clickCount++;
+
+    if (this.clickCount === 5) {
+      this.clickCount = 0;
+      this.loginService.logOut();
+    }
+  }
+
   public ngOnInit(): void {
     this.authForm.get('serial_no')?.setValue(this.publicService.serial_number);
   }

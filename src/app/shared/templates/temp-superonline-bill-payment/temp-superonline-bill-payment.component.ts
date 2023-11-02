@@ -9,6 +9,7 @@ import {
   PageServiceService,
 } from '../../../features/page-services/page-service.service';
 import { AtomAlertModalsComponent } from '../../components/atom-alert-modals/atom-alert-modals.component';
+import { PublicService } from '../../logic/public.service';
 
 @Component({
   selector: 'app-temp-superonline-bill-payment',
@@ -26,15 +27,18 @@ export class TempSuperonlineBillPaymentComponent {
     private dialog: MatDialog,
     private router: Router,
     private pageService: PageServiceService,
+    private publicService: PublicService,
   ) {}
 
   handleSubscription() {
     if (this.currentForm.valid) {
+      this.publicService.generalLoading = true;
       this.http
         .post<InvoiceWelcome>('/superonline', this.currentForm.value)
         .subscribe({
           next: (res) => {
             this.pageService.invoicesData = res;
+            this.publicService.generalLoading = false;
           },
           error: (error) => this.handleError(error),
         });
@@ -44,6 +48,7 @@ export class TempSuperonlineBillPaymentComponent {
   }
 
   handleError(error: any) {
+    this.publicService.generalLoading = false;
     this.dialog.open(AtomAlertModalsComponent, {
       data: {
         type: 'blue',
