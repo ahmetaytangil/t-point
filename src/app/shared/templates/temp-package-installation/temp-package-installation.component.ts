@@ -72,7 +72,10 @@ export class TempPackageInstallationComponent implements OnInit {
           this.subscriptionForm = undefined;
           this.publicService.generalLoading = false;
         },
-        error: (error) => this.handleError(error),
+        error: (error) => {
+          this.handleError(error);
+          this.handleSubscription();
+        },
       });
   }
 

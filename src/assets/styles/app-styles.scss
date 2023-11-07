@@ -1,0 +1,17 @@
+.app-body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  &.primary {
+    background-color: var(--primary);
+  }
+}
+
+.general_header {
+  position: fixed;
+  top: 25px;
+  left: 0;
+  right: 0;
+}

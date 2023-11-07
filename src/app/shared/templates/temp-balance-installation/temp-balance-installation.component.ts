@@ -64,7 +64,10 @@ export class TempBalanceInstallationComponent {
           this.pageService.currentInvoiceStatus = res;
           this.publicService.generalLoading = false;
         },
-        error: (error) => this.handleError(error),
+        error: (error) => {
+          this.handleError(error);
+          this.handleSubscription();
+        },
       });
   }
 
